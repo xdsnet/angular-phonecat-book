@@ -3,7 +3,7 @@
 
 为了更多体验了解本教程例子信息，可进一步观看开发指南。
 
-当你准备开始开发一个使用Angular的程序时，我们建议你`[angular-seed](https://github.com/angular/angular-seed)`项目的基础上扩展开发。
+当你准备开始开发一个使用Angular的程序时，我们建议你在[`angular-seed`](https://github.com/angular/angular-seed)项目的基础上扩展开发。
 
 我们希望这个教程对你有用，让你学到关于Angular足够多的内容（比你预期更好）。我们特别希望你能开发出你自己的Angular程序，并以你感兴趣的合适方式为Angular发展提供灵感。
 
