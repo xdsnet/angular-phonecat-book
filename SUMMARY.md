@@ -14,5 +14,5 @@
 * [步骤10——行为处理](chapter10/chapter10.md)
 * [步骤11——REST与定制服务](chapter11/chapter11.md)
 * [步骤12——应用动画](chapter12/chapter12.md)
-* [结束步骤](end/end.md)
+* [结束](end/end.md)
 
