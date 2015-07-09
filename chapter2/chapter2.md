@@ -112,7 +112,7 @@ describe('PhoneListCtrl', function(){
 * 在每个测试前告诉Angular要加载`phonecatApp`数据模型
 * 请求Angular向我们的测试函数注入`$controller`服务
 * 我们利用`$controller`来创建`PhoneListCtrl`的实例
-*通过这个实例，我们检测范围内的电话数组是否有预期的3条记录
+* 通过这个实例，我们检测范围内的电话数组是否有预期的3条记录
 
 ##编写并运行测试
 Angular开发者一般更喜欢采用Jasmine的行为驱动开发(Behavior-driven Development——BDD)框架来写测试。但是Angular并不限定你只能使用Jasmine。我们（原文作者）的为教程采用Jasmine V1.3编写过所有测试。如果你打算学习下Jasmine，可以到[Jasmine主页](http://jasmine.github.io/)和[Jasmine文档](http://jasmine.github.io/1.3/introduction.html)去访问以学到更多。

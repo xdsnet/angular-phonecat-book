@@ -126,7 +126,7 @@ describe('PhoneCat controllers', function() {
 
 我们在测试环境中创建控制器：
 * 我们使用`inject`辅助方法向Jasmine的`$beforeEach`函数中注入`$rootScope`、`$controller``$httpBackend`等功能实例。这些注入的功能实例用来从头到尾创建每一个测试，这可以保证每一个测试都是从共用的起点开始，但有互相隔离的。
-*我们在我们的控制器中新建了一个作用范围叫做:`$rootScope.$new()`
+* 我们在我们的控制器中新建了一个作用范围叫做:`$rootScope.$new()`
 * 我们通过`$controller`调用`PhonelistCtrl`（其由名字进行了注入，并且有指定的作用范围）
 
 因为我们的代码使用`$http`服务获取手机列表数据到控制器中，所以之前我们需要在`PhoneListCtrl`中创建子作用范围，我们要告诉测试需要用预期的输入请求（返回结果）替代数据，对此我们需要:

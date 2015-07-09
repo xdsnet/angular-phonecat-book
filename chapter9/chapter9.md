@@ -1,6 +1,6 @@
 # 步骤9——转换器
 在这一步骤中，将学习到如何定制一个显示转换器
-*在前一步，详细说明页面直接用"true"和"false"来显示某个手机特性是否被支持，在这里，我们将定制一个转换器，实现用符号:✓ 对应 "true", 以及 ✘ 对应 "false"，来进行显示。让我们看看转换器的代码是怎么样的。
+* 在前一步，详细说明页面直接用"true"和"false"来显示某个手机特性是否被支持，在这里，我们将定制一个转换器，实现用符号:✓ 对应 "true", 以及 ✘ 对应 "false"，来进行显示。让我们看看转换器的代码是怎么样的。
 
 ##工作区切换到步骤9
 直接用浏览器访问[步骤9在线演示](http://angular.github.io/angular-phonecat/step-9/app)
@@ -84,10 +84,10 @@ Chrome 22.0: Executed 4 of 4 SUCCESS (0.034 secs / 0.012 secs)
 
 ##尝试
 让我们尝试一些Angular内建的转换器，把这些添加绑定到`index.html`:
-*`{{"lower cap string" | uppercase }}`
-*`{{foo : "bar",baz :23 | json }}`
-*`{{1304375948024 | date }}`
-*`{{ 1304375948024 | date:"MM/dd/yyyy @ h:mma" }}`
+* `{{"lower cap string" | uppercase }}`
+* `{{foo : "bar",baz :23 | json }}`
+* `{{1304375948024 | date }}`
+* `{{ 1304375948024 | date:"MM/dd/yyyy @ h:mma" }}`
 
 我们也创建一个输入模块，来包括这些转换器绑定，添加如下代码到`index.html`:
 ```html

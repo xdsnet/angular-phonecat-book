@@ -1,8 +1,8 @@
 # 步骤7——路由与多视图
 
 这一步，将学习到如何创建布局模板，以及利用Angular路由模块(`ngRoute`)实现的多视图应用。
-*当浏览器导航到`app/index.html`时，会重定向到`app/index.html#/phones`来访问呈现一个手机列表。
-*当点击手机链接时，URL会改变指向到一款具体的手机，并且显示其详细的信息页面。
+* 当浏览器导航到`app/index.html`时，会重定向到`app/index.html#/phones`来访问呈现一个手机列表。
+* 当点击手机链接时，URL会改变指向到一款具体的手机，并且显示其详细的信息页面。
 
 ##工作区切换到步骤7
 直接用浏览器访问[步骤7在线演示](http://angular.github.io/angular-phonecat/step-7/app)
