@@ -15,7 +15,8 @@ angular.module('phonecatFilters', []).filter('checkmark', function() {
   return function(input) {
     return input ? '\u2713' : '\u2718';
   };
-});```
+});
+```
 我们要定制的转换器叫做"checkmark"。其输入(`input`)是`true`或者`false`，返回的输出结果根据输入是 `true` (\u2713 -> ✓) 或者`false` (\u2718 -> ✘)。
 
 现在我们的转换器已经准备好了，需要注册到`phonecatFilters`模块中，并成为我们主模块`phonecatApp`的一个依赖。
@@ -24,7 +25,8 @@ angular.module('phonecatFilters', []).filter('checkmark', function() {
 ```js
 ...
 angular.module('phonecatApp', ['ngRoute','phonecatControllers','phonecatFilters']);
-...```
+...
+```
 
 ##模板
 因为转换器的代码存在于`app/js/filters.js`文件中，所以我们需要把它添加到布局模板中。
@@ -33,10 +35,12 @@ angular.module('phonecatApp', ['ngRoute','phonecatControllers','phonecatFilters'
 ...
  <script src="js/controllers.js"></script>
  <script src="js/filters.js"></script>
-...```
+...
+```
 在Angular模板中采用如下的语法来应用转换器:
 ```js
-{{ expression | filter }}```
+{{ expression | filter }}
+```
 让我们把这个转换器应用到手机详细说明模板中:
 `app/partials/phone-detail.html`:
 ```js
@@ -47,7 +51,8 @@ angular.module('phonecatApp', ['ngRoute','phonecatControllers','phonecatFilters'
       <dt>GPS</dt>
       <dd>{{phone.connectivity.gps | checkmark}}</dd>
     </dl>
-...```
+...
+```
 
 ##测试
 转换器就像其它组件一样，也需要被测试，而且其测试也很容易写。
@@ -74,7 +79,8 @@ describe('filter', function() {
 
 你现在可以看到类似如下的Karma输出:
 ```cmd
-Chrome 22.0: Executed 4 of 4 SUCCESS (0.034 secs / 0.012 secs)```
+Chrome 22.0: Executed 4 of 4 SUCCESS (0.034 secs / 0.012 secs)
+```
 
 ##尝试
 让我们尝试一些Angular内建的转换器，把这些添加绑定到`index.html`:
@@ -85,7 +91,8 @@ Chrome 22.0: Executed 4 of 4 SUCCESS (0.034 secs / 0.012 secs)```
 
 我们也创建一个输入模块，来包括这些转换器绑定，添加如下代码到`index.html`:
 ```html
-<input ng-model="userInput"> Uppercased: {{ userInput | uppercase }}```
+<input ng-model="userInput"> Uppercased: {{ userInput | uppercase }}
+```
 
 ##小结
 现在我们已经学习了如何写一个定制转换器，并知道如何进行测试，让我们进入步骤10学习如何使用Angular来增强手机详细说明页面。

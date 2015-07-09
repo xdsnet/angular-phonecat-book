@@ -43,31 +43,34 @@
 ## 下载angular-phonecat
 从 GitHuB上的[angular-phonecat repository](https://github.com/angular/angular-phonecat)克隆需要用到下面的命令
 ```cmd
-git clone --depth=14 https://github.com/angular/angular-phonecat.git```
+git clone --depth=14 https://github.com/angular/angular-phonecat.git
+```
 
-这个命令会在你计算机的当前目录下建立```
-angular-phonecat```目录：
+这个命令会在你计算机的当前目录下建立`angular-phonecat`目录：
 >`--depth=14` 参数选项是告诉Git获取最近的14次提交，这让下载的东西更少，也就更快了。
 
 改变当前目录到`angular-phonecat`
 ```cmd
-cd angular-phonecat```
+cd angular-phonecat
+```
 本教程说明：从现在开始，都假定你的所有命令都是在`angular-phonecat`目录下执行。
 
 ##安装Node.js
 如果你想运行预定义的本地web服务来测试，你需要有 [Node.js v0.10.27+](http://nodejs.org/)。你可以从[http://nodejs.org/download/](http://nodejs.org/download/)下载安装你操作系统合适的版本。确认你的Node.js是符合要求的版本，需要运行：
 ```cmd
-node --version```
-在基于Debian的发行版，因为有另外一个工具命名为`node`，所以提供的解决方案是安装```
-nodejs-legacy```apt包，但把`node`改名为`nodejs`:
+node --version
+```
+在基于Debian的发行版，因为有另外一个工具命名为`node`，所以提供的解决方案是安装`nodejs-legacy`apt包，但把`node`改名为`nodejs`:
 ```cmd
 apt-get install nodejs-legacy
-nodejs --version```
+nodejs --version
+```
 >如果你需要在你的本地环境中运行不同版本的node.js，可以考虑安装 [Node Version Manager (nvm)](https://github.com/creationix/nvm) 。
 
 一旦在你的计算机中安了Node.js，你就可以考虑安装下面的工具来自动解决依赖问题：
 ```cmd
-npm install```
+npm install
+```
 
 这个命令会下载下面的工具到`node_modules`目录：
 * [Bower](http://bower.io/) -客户端代码包管理
@@ -87,22 +90,27 @@ npm install```
 ##安装辅助工具（可选）
 Bower, Http-Server, Karma 和 Protractor 模块都是单独可执行的，你可以全局安装，然后在一个终端/命令行中运行。在这个教程中你不一定需要下面的工作，如果你决定立即执行，你可以在全局安装:
 ```cmd
-sudo npm install -g ...```
+sudo npm install -g ...
+```
 例如要安装Bower的命令是:
 ```cmd
-sudo npm install -g bower```
+sudo npm install -g bower
+```
 *(注意在windows上运行时需要省略那个sudo)*
 然后你就可以运行bower工具了，例如：
 ```cmd
-bower install```
+bower install
+```
 
 ##运行开发Web服务
 整个Angular应用是纯粹的客户端代码，所以它可以用浏览器在本地文件系统打开，这也可能比通过HTTP服务打开更好。但是，为了安全现在很多浏览器是不允许JavaScript直接从本地文件系统加载文件的。所以 angular-phonecat项目定义了一个简单的静态web服务来支持开发。打开运行这个服务需要输入:
 ```cmd
-npm start```
+npm start
+```
 这会建立一个本地web服务，它监听者端口8000.你可以用浏览器打开
 ```
-http://localhost:8000/app/index.html```
+http://localhost:8000/app/index.html
+```
 来访问
 >这个web服务也可以绑定到不同的ip或者端口，你需要编辑package.json中的“start"脚本部分，你可以用-a 来设置ip地址，用-p来设置端口。
 
@@ -111,7 +119,8 @@ http://localhost:8000/app/index.html```
 
 本项目使用Karma来定义单元测试，执行这些测试需要运行
 ```cmd
-npm test```
+npm test
+```
 这将运行Karma单元测试。 Karma读取`test/karma.conf.js`中的配置,它指示Karma执行:
  *打开一个Chrome浏览器，并且连接到Karma
  *在浏览器中执行所有的单元测试
@@ -129,19 +138,22 @@ npm test```
 angular-phonecat项目配置使用[Protractor](https://github.com/angular/protractor)来执行端到端测试。Protractor依赖一套驱动使它能与浏览器交互。你可以通过下面的命令进行安装:
 
 ```cmd
-npm run update-webdriver```
+npm run update-webdriver
+```
 
 *(你只需要执行它一次.)*
 
 因为Protractor工作需要与程序交互，所以需要先启动我们的web服务：:
 
 ```cmd
-npm start```
+npm start
+```
 
 然后在一个特定的终端/命令行窗口中执行Protractor测试脚本：:
 
 ```cmd
-npm run protractor```
+npm run protractor
+```
 
 Protractor会读取在`test/protractor-conf.js`中的配置，这些配置告诉Protractor执行:
 

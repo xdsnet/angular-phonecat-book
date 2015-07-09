@@ -30,7 +30,8 @@
     "jquery": "1.10.2",
     "angular-animate": "~1.2.x"
   }
-}```
+}
+```
 * `"angular-animate": "~1.2.x"`告诉bower需要安装1.2.x版本的angular-animate兼容组件。
 
 * `"jquery": "1.10.2"`告诉bower需要1.10.2版本的JQuery，注意，JQuery不属于Angular库，它是一个标准的JQuery库。我们可以用bower安装第三方的库。
@@ -66,7 +67,8 @@
   <!-- for JavaScript Animations -->
   <script src="js/animations.js"></script>
 
-...```
+...
+```
 
 >重要提醒:在Angular 1.3中必须要使用jQuery 2.1以上版本，而jQuery1.x版本是不被正式支持的。一定要在所有AngularJS脚本之前加载jQuery，否则AngularJS可能不能正确检测到jQuery而造成动画不按预想工作。
 
@@ -79,7 +81,8 @@
 angular.module('phonecatAnimations', ['ngAnimate']);
   // ...
   // this module will later be used to define animations
-  // .```
+  // .
+```
   然后把这个模块加入到我们的程序中...
   `app/js/app.js`:
  ```js
@@ -92,7 +95,8 @@ angular.module('phonecatApp', [
   'phonecatFilters',
   'phonecatServices',
 ]);
-// ...```
+// ...
+```
 现在这个手机展示已经准备好动画环境了，让我们创作一些动画。
 
 ##在动态`ngRepeat`中使用CSS的过渡动画
@@ -110,7 +114,8 @@ angular.module('phonecatApp', [
     <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
     <p>{{phone.snippet}}</p>
   </li>
-</ul>```
+</ul>
+```
 注意我们是怎么添加`phone-listing`CSS类的？这些就是我们获得动画效果所有必须的HTML代码。
 
 现在为CSS过渡动画实现代码
@@ -147,7 +152,8 @@ angular.module('phonecatApp', [
   height: 0;
   padding-top: 0;
   padding-bottom: 0;
-}```
+}
+```
 正如所见，`phone-listing`CSS类通过向对象添加或者去除（CSS类）而使得动画钩子触发。
 * `ng-enter`类被赋予一个新加入并渲染展示在页面中的手机元素。
 * `ng-move`类赋予在列表中移动的手机元素
@@ -175,7 +181,8 @@ angular.module('phonecatApp', [
 ```html
 <div class="view-container">
   <div ng-view class="view-frame"></div>
-</div>```
+</div>
+```
 通过这点改变，嵌入在`view-container`CSS类元素下的`ng-view`指令所在元素有了`view-frame`CSS类属性。而`view-container`CSS类元素下的各个子元素有了`position: relative`样式设定，使得`ng-view`是相对于父级元素进行定位实现动画转换。
 
 在这里，我们添加一些CSS到`animations.css`中实现转换动画:
@@ -235,7 +242,8 @@ angular.module('phonecatApp', [
   to { opacity: 0; }
 }
 
-/* don't forget about the vendor-prefixes! */```
+/* don't forget about the vendor-prefixes! */
+```
 不是太疯狂！只是一个简单的划入划出效果就出现在页面中。这里的唯一不寻常的是,我们使用绝对定位来前一个页面(其有`ng-leave`类型设定),使其在下一个页面位置(通过`ng-enter`确认)的顶部。前一个页面将被移除，所以会淡出，新的页面将淡入并移动到原来的顶部。
 
 在页面渲染时，一旦离开动画完成（动画对应元素在显示中被移除），或者一旦进入动画完成(被赋予了`ng-enter` 和 `ng-enter-active` CSS 类的元素)，都会移除附加的预订CSS类（即动画相关的CSS类，例如`ng-enter` 、`ng-enter-active`和`ng-leve`等）。这显得十分自然流畅,页面处理流程没有任何跳来跳去。
@@ -272,7 +280,8 @@ angular.module('phonecatApp', [
   <li ng-repeat="img in phone.images">
     <img ng-src="{{img}}" ng-mouseenter="setImage(img)">
   </li>
-</ul>```
+</ul>
+```
 
 就像缩略图，我们使用一个转换器来显示所有的概要文件列表图片，但是我们没有动画，也没有重复关联动画。反而，我们把视线投向了`ng-class`指令，因为无论何时，只有`active`类被激活，它就被加入到元素，并作为可视元素渲染显示出来。另外，其他不同角度的图片是隐藏的。在这个例子中，同一时间总有一个元素（图片）是`active`而被显示在屏幕上的。
 
@@ -305,7 +314,8 @@ img.phone {
 
 img.phone:first-child {
   display: block;
-  }```
+  }
+```
 
 你可能想我们是不是要创建另外的CSS动画？事实上，我们不这样做，这里我们将借此机会学习如何利用`animation()`方法创建基于JavaScript的动画：
 `app/js/animations.js`
@@ -361,7 +371,8 @@ phonecatAnimations.animation('.phone', function() {
     addClass: animateUp,
     removeClass: animateDown
   };
-});```
+});
+```
 
 注意，这里我们使用了[jQuery](http://jquery.com/)来实现动画。在AngularJ中实现动画时jQuery并不是必须的，但是直接用JavaScript实现动画其实已经超出了本教程的范围。为了更多了解`jQuery.animat`请查看[jQuery文档](http://api.jquery.com/animate/)。
 
