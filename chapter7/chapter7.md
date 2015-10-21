@@ -185,7 +185,7 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams',
     $scope.phoneId = $routeParams.phoneId;
   }]);```
 
-再次提醒，我们是创建了一个新的模块叫做`phonecatControolers`。对于很多小的AngularJS程序，共同创造是一个模块为所有控制器(如果有几个)公用。随着程序的增强，很容易为程序添加更多的公用模块。对于大的程序，你需要为每个主要的程序功能创建特定的模块。
+再次提醒，我们是创建了一个新的模块叫做`phonecatControllers`。对于很多小的AngularJS程序，共同创造是一个模块为所有控制器(如果有几个)公用。随着程序的增强，很容易为程序添加更多的公用模块。对于大的程序，你需要为每个主要的程序功能创建特定的模块。
 
 因为我们的例子程序是相对比较小的程序，所以我们把所有的控制器都添加到`phoecatControllers`模块中。
 
