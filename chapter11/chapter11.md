@@ -26,10 +26,12 @@ RESTful功能是由Angular中的`ngResource`模块提供，这个模块不属于
     "angular-route": "~1.2.x",
     "angular-resource": "~1.2.x"
   }
-}```
+}
+```
 新的依赖描述`"angular-resource": "~1.2.x"`告诉bower要安装的angular-resource组件兼容版本是1.2.x。我们必须命令bower下载并安装这个依赖，这里我们运行下:
 ```cmd
-npm install```
+npm install
+```
 
 >如果你是利用bower全局安装，你可能要单独运行`bower install`，但在这个项目中只需要运行`npm install`即可调用bower
 
@@ -41,7 +43,8 @@ npm install```
 ...
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="js/services.js"></script>
-...```
+...
+```
 
 ##服务
 我们创建自己的服务提供从服务器访问手机数据：
@@ -54,7 +57,8 @@ phonecatServices.factory('Phone', ['$resource',
     return $resource('phones/:phoneId.json', {}, {
       query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
     });
-  }]);```
+  }]);
+```
 
 我们使用模块API来注册了一个定制服务（作为工厂函数）。我们用`Phone`来代表这个服务(调用工厂函数)。工厂函数类似于一个控制器的构造函数,通过函数参数可以声明依赖注入。这个`Phone`服务描述了对`$resource`服务功能的依赖。
 
@@ -63,7 +67,8 @@ phonecatServices.factory('Phone', ['$resource',
 ```js
 ...
 angular.module('phonecatApp', ['ngRoute', 'phonecatControllers','phonecatFilters', 'phonecatServices']).
-...```
+...
+```
 
 我们也需要把`phonecatServices`模块添加进`phonecatApp`的模块依赖数组中。
 
@@ -94,10 +99,12 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Ph
 ```js
 $http.get('phones/phones.json').success(function(data) {
   $scope.phones = data;
-});```
+});
+```
 替换成
 ```js
-$scope.phones = Phone.query();```
+$scope.phones = Phone.query();
+```
 这是一个简单的声明。我们可以查询到所有手机。
 
 注意在上面的代码中一个重要的事情发生了，就是我们在调用`Phone`服务的方法时，没有定义任何的回调函数。虽然这像可以获得同步的返回果，但其实并不是。我们是在"未来"获得一个同步返回结果——一个由XHR响应返回数据填充的对象。因为Angular的数据绑定，我们可以使用这个"未来"结果，并绑定到我们的模板中。到时，当数据获取到后，视图会自动更新。
@@ -115,7 +122,8 @@ $scope.phones = Phone.query();```
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/js/**/*.js',
       'test/unit/**/*.js'
-    ],```
+    ],
+```
 
 我们编辑单元测试来验证新服务是否能够像预期一样正确发出HTTP请求和处理响应。这些测试也检验我们的控制器能够与服务正常协作。
 
@@ -191,10 +199,12 @@ describe('PhoneCat controllers', function() {
       expect(scope.phone).toEqualData(xyzPhoneData());
     });
   });
-});```
+});
+```
 我们现在可以看到类似如下的Karma输出了:
 ```cmd
-Chrome 22.0: Executed 4 of 4 SUCCESS (0.038 secs / 0.01 secs)```
+Chrome 22.0: Executed 4 of 4 SUCCESS (0.038 secs / 0.01 secs)
+```
 
 ##小结
 我们准备在步骤12（最后一步）中为手机图片替换应用上动画效果。

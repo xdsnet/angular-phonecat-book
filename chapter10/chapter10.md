@@ -23,7 +23,8 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', '$h
     $scope.setImage = function(imageUrl) {
       $scope.mainImageUrl = imageUrl;
     }
-  }]);```
+  }]);
+```
 
 在`PhoneDetailCtrl`控制器中，我们创建了一个`mainImageUrl`模型属性，并且设置默认值为第一个手机图片的URL。
 
@@ -41,7 +42,8 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', '$h
     <img ng-src="{{img}}" ng-click="setImage(img)">
   </li>
 </ul>
-...```
+...
+```
 我们把`ngSrc`指令通过`mainImageUrl`绑定到大图片的URL。
 
 我们也为缩略图注册了`ngClick`处理，当用户点击任何缩略图的时候进行处理，这个处理会使用`setImage`行为处理函数依据点击的缩略图来改变`mainImageUrl`的值，从而改变大图显示内容。
@@ -67,7 +69,8 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', '$h
       element(by.css('.phone-thumbs li:nth-child(1) img')).click();
       expect(element(by.css('img.phone')).getAttribute('src')).toMatch(/img\/phones\/nexus-s.0.jpg/);
     });
-  });```
+  });
+```
 
 我们现在可以运行`npm run protractor`来完成测试了。
 
@@ -105,19 +108,22 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', '$h
 
       expect(scope.phone).toEqual(xyzPhoneData());
     });
-  });```
+  });
+```
 现在单元测试能通过了。
 
 ##尝试
 让我们给`PhoneDetailCtrl`添加新的方法:
 ```js
-    $scope.hello = function(name) {
-        alert('Hello ' + (name || 'world') + '!');
-    }```
+  $scope.hello = function(name) {
+      alert('Hello ' + (name || 'world') + '!');
+  }
+```
 并把
 ```html
-    <button ng-click="hello('Elmo')">Hello</button>```
-    添加到`phone-detail.html`模板中。
+  <button ng-click="hello('Elmo')">Hello</button>
+```
+添加到`phone-detail.html`模板中。
 
 ##小结
 我们的手机图片已经可以在指定位置进行切换了，我们准备进入步骤11来学习一个更好的获取数据的方法。

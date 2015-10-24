@@ -1,6 +1,6 @@
 # 步骤8——更多模板
 这一步我们会实现手机详细说明视图，它将在我们点击手机列表中的手机链接后显示。
-*当点击手机列表中一个手机的链接，指定手机的详细说明页面将显示出对应手机的详细信息。
+* 当点击手机列表中一个手机的链接，指定手机的详细说明页面将显示出对应手机的详细信息。
 
 ##工作区切换到步骤8
 直接用浏览器访问[步骤8在线演示](http://angular.github.io/angular-phonecat/step-8/app)
@@ -28,7 +28,8 @@
       "flash": "16384MB",
       "ram": "512MB"
   }
-}```
+}
+```
 每个文件都有相同的属性数据结构，我们会把这些数据显示在手机详细说明视图中。
 
 ##控制器
@@ -42,7 +43,8 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', '$h
     $http.get('phones/' + $routeParams.phoneId + '.json').success(function(data) {
       $scope.phone = data;
     });
-  }]);```
+  }]);
+```
 为了构建HTTP的URL请求，我们从定义在`$route`功能中的当前路由中扩展出`$routeParams.phoneId`。
 
 ##模板
@@ -74,7 +76,8 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', '$h
     <span>Additional Features</span>
     <dd>{{phone.additionalFeatures}}</dd>
   </li>
-</ul>```
+</ul>
+```
 
 ##测试
 我们写了一个类似我们在步骤5中`PhoneListCtrl`控制器的新单元测试。
@@ -104,10 +107,12 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', '$h
       expect(scope.phone).toEqual({name:'phone xyz'});
     });
   });
-...```
+...
+```
 你应该可以看到类似下面的Karma输出：
 ```cmd
-Chrome 22.0: Executed 3 of 3 SUCCESS (0.039 secs / 0.012 secs)```
+Chrome 22.0: Executed 3 of 3 SUCCESS (0.039 secs / 0.012 secs)
+```
 
 我们也添加一个新的端到端测试导航到Nexus S的详细说明页面验证页面头部是否有"Nexus S"。
 `test/e2e/scenarios.js`:
@@ -124,7 +129,8 @@ Chrome 22.0: Executed 3 of 3 SUCCESS (0.039 secs / 0.012 secs)```
       expect(element(by.binding('phone.name')).getText()).toBe('Nexus S');
     });
   });
-...```
+...
+```
 你现在可以运行`npm run protractor`来运行端到端测试了。
 
 ##尝试
