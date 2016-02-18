@@ -87,10 +87,10 @@ npm install
 >注意angular-phonecat项目通过npm脚本自动安装运行各个单元，这意味着你不需要单独为了这个教程在系统（全局）中安装相应内容。更多信息请在下面的**安装辅助工具**中了解。
 项目中预定义了几个npm辅助脚本来使得你更容易运行常规任务，这些在整个开发中都是有效的：
 
-*`npm start `: 打开本地开发web服务
-*`npm test`: 运行Karma单元测试
-*`npm run protractor`: 运行Protractor端到端(E2E)测试
-*`npm run update-webdriver `: 安装Protractor需要的驱动程序
+* `npm start `: 打开本地开发web服务
+* `npm test`: 运行Karma单元测试
+* `npm run protractor`: 运行Protractor端到端(E2E)测试
+* `npm run update-webdriver `: 安装Protractor需要的驱动程序
 
 ##安装辅助工具（可选）
 Bower, Http-Server, Karma 和 Protractor 模块都是单独可执行的，你可以全局安装，然后在一个终端/命令行中运行。在这个教程中你不一定需要下面的工作，如果你决定立即执行，你可以在全局安装:
@@ -127,10 +127,10 @@ http://localhost:8000/app/index.html
 npm test
 ```
 这将运行Karma单元测试。 Karma读取`test/karma.conf.js`中的配置,它指示Karma执行:
- *打开一个Chrome浏览器，并且连接到Karma
- *在浏览器中执行所有的单元测试
- *在终端/命令行中报告测试结果
- *监控项目JavaScript文件的改变并再次执行测试
+ * 打开一个Chrome浏览器，并且连接到Karma
+ * 在浏览器中执行所有的单元测试
+ * 在终端/命令行中报告测试结果
+ * 监控项目JavaScript文件的改变并再次执行测试
 
 确保所有测试项都是正确的才算完成相应的编码工作，因为单元测试可以检测你的改动是否符合你编码需要，并及时反馈。
 
