@@ -32,7 +32,8 @@
   </ul>
 
 </body>
-</html>```
+</html>
+```
 这里我们用`ngRepeat指令`和两个`Angular表达式(expression)`取代了硬编码的电话列表:
 * `<li>`的`ng-repeat="phone in phones"`属性就是一个Angular重复指令，它告诉angular在列表中为每个电话信息重复创建`<li>`元素，这里的`<li>`标签就作为了模板。
 * 在双大括号中的表达式`{{phone.name}}`和`{{phone.snippet}}`会用实际的值替代。
@@ -60,7 +61,8 @@ phonecatApp.controller('PhoneListCtrl', function ($scope) {
     {'name': 'MOTOROLA XOOM™',
      'snippet': 'The Next, Next Generation tablet.'}
   ];
-});```
+});
+```
 这里，我们定义了一个叫做`PhoneListCtrl `的控制器，并且注册它到一个叫做`phonecatApp`的AngularJS数据模型中。注意，我们在`<html>`中的`ng-app`指令现在指定了一个`phonecatApp`的数据模型，这将在启动Angular过程中加载。
 
 尽管现在看来控制器并没有做什么特别的事，但它是至关重要的。通过上下文数据模型,控制器允许我们建立模型和视图之间的数据绑定。我们由此连接起二者间的描述、数据和逻辑，它们是如下工作的：
@@ -85,7 +87,8 @@ describe('PhoneListCtrl', function(){
     expect(scope.phones.length).toBe(3);
   });
 
-});```
+});
+```
 这个对于`PhoneListCtrl`的测试实例检验了手机数组中是否有3条记录。这个例子简单的示范了如何为Angular项目创建一个单元测试。因为测试是软件开发的关键部分，我们可以让这一过程更简单，从而鼓励开发者写测试。
 
 ##测试非全局控制器
@@ -103,7 +106,8 @@ describe('PhoneListCtrl', function(){
     expect(scope.phones.length).toBe(3);
   }));
 
-});```
+});
+```
 
 * 在每个测试前告诉Angular要加载`phonecatApp`数据模型
 * 请求Angular向我们的测试函数注入`$controller`服务
@@ -123,7 +127,8 @@ angular-seed 预配采用[Kama](http://karma-runner.github.io/)进行单元测�
   info: Karma server started at http://localhost:9876/
   info (launcher): Starting  browser "Chrome"
   info (Chrome 22.0): Connected on socket id tPUm9DXcLHtZTKbAEO-n
-  Chrome 22.0: Executed 1 of 1 SUCCESS (0.093 secs / 0.004 secs)```
+  Chrome 22.0: Executed 1 of 1 SUCCESS (0.093 secs / 0.004 secs)
+  ```
   这代表了测试通过或者没有通过
 * 在测试没有主动关闭前，在对源码或者test.js有任何修改后都会自动运行测试。Karma会注意到变化并执行测试返回结果给你。难道这不是很好？
 >确认你没有最小化karma打开的浏览器。在一些操作系统中，最小化浏览器会导致内存访问受限，这使得karma测试运行的特别慢。
@@ -131,29 +136,35 @@ angular-seed 预配采用[Kama](http://karma-runner.github.io/)进行单元测�
 ##尝试
 为`index.html`添加其他的绑定，例如：
 ```html
-<p>Total number of phones:{{phones.length}}</p>```
+<p>Total number of phones:{{phones.length}}</p>
+```
 在控制器中创建一个新的模型属性，并绑定到模板。例如：
 ```js
-$scope.name = "World";```
+$scope.name = "World";
+```
 为`index.html`添加新的绑定：
 ```html
-<p>Hello,{{name}}!</p>```
+<p>Hello,{{name}}!</p>
+```
 刷新你的浏览器来检测是否会显示"Hello, World!"。
 在`./test/unit/controllersSpec.js`中为控制器更新单元测试来反映前面的修改。例如添加：
 ```js
-expect(scope.name).toBe('World');```
+expect(scope.name).toBe('World');
+```
 利用`repeater`指令在`index.html`中构建一个简单的表格：
 ```html
     <table>
       <tr><th>row number</th></tr>
       <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i}}</td></tr>
-    </table>```
+    </table>
+    ```
 现在把列表改成对i都增加1的绑定：
 ```html
     <table>
       <tr><th>row number</th></tr>
       <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i+1}}</td></tr>
-    </table>```
+    </table>
+    ```
 额外还可以尝试通过使用附加的ngrepeat实现8×8的表格。
 
 改变测试项让单元测试失败:如把`expect(scope.phones.length).toBe(3)`改成`toBe(4)`。
