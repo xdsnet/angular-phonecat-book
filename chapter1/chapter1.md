@@ -8,7 +8,8 @@
 让工作区切换到合适的分支(注意是在`angular-phonecat`目录中执行下面的操作，以后各步都会执行类似的操作，只是最后的数字不同，所以将不再详细说明和介绍，只是提示切换到步骤多少)：
 > 切换到步骤1
 ```cmd
-git checkout -f step-1```
+git checkout -f step-1
+```
 
 你也可以直接用浏览器访问[步骤1在线演示](http://angular.github.io/angular-phonecat/step-1/app)
 
@@ -33,11 +34,13 @@ git checkout -f step-1```
         The Next, Next Generation tablet.
       </p>
     </li>
-  </ul>```
+  </ul>
+  ```
 
 ##尝试
 试着再添加一些静态HTML，例如：
 ```html
-<p>总共手机数量：2</p>```
+<p>总共手机数量：2</p>
+```
 ##小结
 这里添加了一个静态HTML来显示一个列表，让我们到步骤2去学习如何利用AngularJS来动态生成相同的列表。
