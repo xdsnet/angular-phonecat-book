@@ -39,7 +39,8 @@ angular.module('phonecatApp', ['ngRoute','phonecatControllers','phonecatFilters'
 ```
 在Angular模板中采用如下的语法来应用转换器:
 ```js
-{{ expression | filter }}```
+{{ expression | filter }}
+```
 让我们把这个转换器应用到手机详细说明模板中:
 `app/partials/phone-detail.html`:
 ```js
