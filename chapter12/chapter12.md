@@ -81,10 +81,11 @@
 angular.module('phonecatAnimations', ['ngAnimate']);
   // ...
   // this module will later be used to define animations
-  // .```
+  // .
+```
   然后把这个模块加入到我们的程序中...
   `app/js/app.js`:
- ```js
+```js
  // ...
 angular.module('phonecatApp', [
   'ngRoute',
