@@ -27,7 +27,8 @@
     "bootstrap": "~3.1.1",
     "angular-route": "~1.2.x"
   }
-}```
+}
+```
 新的依赖关系`"angular-route": "~1.2.x"`告诉`bower`安装版本1.2.x的`angular-route`组件。我们必须明确告诉`bower`下载安装这个依赖。
 
 如果你是在全局环境中使用bower安装，你可能会用直接到`bower install`指令，但是在这个项目中我们已经预配使用`npm`来启动`bower install`，所以你只需要:
@@ -79,7 +80,8 @@ Angular模块从应用程序中解决（去除了）全局状态的问题,并提
   <div ng-view></div>
 
 </body>
-</html>```
+</html>
+```
 我们添加了2个新的`<script>`标签以在我们的index文件中加载额外的JavaScript文件：
 * `angular-route.js`：定义了Angular的`ngRoute`模块，用于提供路由功能
 * `app.js`:这个文件在程序中提供一个root模块。
@@ -113,12 +115,14 @@ Angular模块从应用程序中解决（去除了）全局状态的问题,并提
 
     </div>
   </div>
-</div>```
+</div>
+```
 
 我们还增加了一个包含占位符的手机详细说明视图的模板:
 `app/partials/phone-detail.html`:
 ```html
-TBD:detail view for <span>{{phoneId}}</span>```
+TBD:detail view for <span>{{phoneId}}</span>
+```
 
 注意现在我们使用了`phoneId`表达式，它是定义在`PhoneDetailCtrl`控制器中的。
 
@@ -134,7 +138,8 @@ var phonecatApp = angular.module('phonecatApp', [
   'phonecatControllers'
 ]);
 
-...```
+...
+```
 注意传递给`angular.module`的第2个参数`['ngRoute','phonecatControllers']`，这个数组列出了`phonecatApp`依赖的模块。
 ```js
 ...
@@ -153,7 +158,8 @@ phonecatApp.config(['$routeProvider',
       otherwise({
         redirectTo: '/phones'
       });
-  }]);```
+  }]);
+```
 
   通过`phonecatApp.config()`方法，我们请求`$routeProvider`注入自己配置的函数，并且使用`$routeProvider.when()`方法提供了自定义路由规则。
 
@@ -183,7 +189,8 @@ phonecatControllers.controller('PhoneListCtrl', ['$scope', '$http',
 phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams',
   function($scope, $routeParams) {
     $scope.phoneId = $routeParams.phoneId;
-  }]);```
+  }]);
+```
 
 再次提醒，我们是创建了一个新的模块叫做`phonecatControllers`。对于很多小的AngularJS程序，共同创造是一个模块为所有控制器(如果有几个)公用。随着程序的增强，很容易为程序添加更多的公用模块。对于大的程序，你需要为每个主要的程序功能创建特定的模块。
 
@@ -216,7 +223,8 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams',
     it('should display placeholder page with phoneId', function() {
       expect(element(by.binding('phoneId')).getText()).toBe('nexus-s');
     });
-  });```
+  });
+```
 你可以用`npm run protractor`来运行并观察测试结果。
 
 ##尝试
