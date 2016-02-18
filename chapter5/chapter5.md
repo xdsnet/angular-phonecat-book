@@ -19,7 +19,8 @@
   ...
  },
 ...
-]```
+]
+```
 
 ##控制器
 这里的控制器中，我们使用了Angular的`$http`服务，利用一个HTTP请求，从服务器中获取到`app/phones/phones.json`文件数据。`$http`是Angular内建web程序通用服务（功能）中的一个，Angular会在程序需要时自动注入这些服务功能。
@@ -35,14 +36,16 @@ phonecatApp.controller('PhoneListCtrl', function ($scope, $http) {
   });
 
   $scope.orderProp = 'age';
-});```
+});
+```
 `$http`发起一个HTTP GET请求，其内容是请求web服务器端的`phones/phones.json`文件（这里的URL是相对于`index.html`的相对路径）。服务器端响应这个请求，提供了json文件的内容（响应其实是一个后台服务中动态处理的反馈结果，这对于浏览器或者我们的程序来说这看起来是相同的/透明的。这个教程中为了简单起便，直接是一个json数据文件了。)
 
 `$http`服务得到了一个有`success`方法的`promise object`，然后我们就可以调用方法来处理异步响应和分配手机数据来构建我们控制器中作用范围中的`phones`数据了。注意，这里Angular自动检测了json类型响应，并分析结构化了数据。
 
 为了使用Angular服务，你只用在控制器中需要的地方简单把调用名字作为构造函数的参数，例如:
 ```js
-phonecatApp.controller('PhoneListCtrl', function ($scope, $http) {...}```
+phonecatApp.controller('PhoneListCtrl', function ($scope, $http) {...}
+```
 Angular的依赖注入管理会在控制器初始化时自动的提供声明的功能，而且依赖注入管理还自动的处理相应的层次依赖关系（通常一个服务功能还取决于其他服务功能，这些问题Angular都会自动处理）。
 
 注意参数的名字很重要（不能随意变动），因为依赖管理会用到这些名字进行查找来解决依赖关系并进行注入。
@@ -64,19 +67,22 @@ Angular的依赖注入管理会在控制器初始化时自动的提供声明的�
 ```js
     function PhoneListCtrl($scope, $http) {...}
     PhoneListCtrl.$inject = ['$scope', '$http'];
-    phonecatApp.controller('PhoneListCtrl', PhoneListCtrl);```
+    phonecatApp.controller('PhoneListCtrl', PhoneListCtrl);
+```
 
 * 使用内联注解语句，函数不是仅仅提供功能要求，还包括一个功能名的字符串数组（内联注解数组），例如:
 ```js
     function PhoneListCtrl($scope, $http) {...}
-    phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', PhoneListCtrl]);```
+    phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', PhoneListCtrl]);
+```
 
 
 这两种方法都可以被Angular正常识别进行注入，所以你只需要依据你项目风格选择一种即可。
 
 当采用第二种方式，通常定义一个内联的匿名函数供注册器实施注入:
 ```js
-    phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $http) {...}]);```
+    phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $http) {...}]);
+```
 
  从现在开始，教程中我们将采用内联注解方式（第二种方法）进行处理，使得代码支持压缩。让我们为`PhoneListCtrl`添加一个内联注解：
 `app/js/controllers.js`:
@@ -90,7 +96,8 @@ phonecatApp.controller('PhoneListCtrl', ['$scope', '$http',
     });
 
     $scope.orderProp = 'age';
-  }]);```
+  }]);
+```
 ##测试
 `test/unit/controllersSpec.js`:
 因为我们应用了依赖注入使得控制器有了依赖关系，所以构建控制器的单元测试变动有点复杂了。我们可以使用`new`运算符在构造中提供`$http`的模拟实现。然而Angular提供了用于单元测试的`$http`模拟，我们需要配置`$httpBackend`实现“模拟”服务器响应来完成单元测试:
@@ -113,7 +120,8 @@ describe('PhoneCat controllers', function() {
 
       scope = $rootScope.$new();
       ctrl = $controller('PhoneListCtrl', {$scope: scope});
-    }));```
+    }));
+```
 注意：因为需要加载Jasmine和`angular-mocks.js`到测试环境，所以我们有两个辅助方法`module`和`inject`用于访问和配置注入器。
 
 我们在测试环境中创建控制器：
@@ -134,7 +142,8 @@ describe('PhoneCat controllers', function() {
 
       expect(scope.phones).toEqual([{name: 'Nexus S'},
                                    {name: 'Motorola DROID'}]);
-    });```
+    });
+```
 
 * 我们利用`$httpBackend.flush()`激活浏览器请求序列，这导致`$http`服务返回预期的响应。
 * 我们验证手机数据模型是否已经存在于作用范围内。
@@ -143,17 +152,20 @@ describe('PhoneCat controllers', function() {
 ```js
     it('should set the default value of orderProp model', function() {
       expect(scope.orderProp).toBe('age');
-    });```
+    });
+```
 这时你应该看到类似如下信息的Karma输出：
 ```cmd
-Chrome 22.0: Executed 2 of 2 SUCCESS (0.028 secs / 0.007 secs)```
+Chrome 22.0: Executed 2 of 2 SUCCESS (0.028 secs / 0.007 secs)
+```
 
 ##尝试
 在`index.html`的底部添加`<pre>{{phones | json }}</pre>的数据绑定输出来显示json格式的手机数据。
 
 在`PhoneListCtrl`控制器中，利用手机数字序号预处理http的响应结果来限定数据值的范围，可以把下面的代码加入`$http`回调中：
 ```js
-$scope.phones = data.splice(0, 5);```
+$scope.phones = data.splice(0, 5);
+```
 
 ##小结
 现在你了解学习了使用Angular服务是多么简单（依靠Angular依赖注入机制），下面跳到步骤6，将为手机添加图片缩略图和一些链接。
