@@ -24,7 +24,8 @@
       <span>{{phone.name}}</span>
       <p>{{phone.snippet}}</p>
     </li>
-  </ul>```
+  </ul>
+  ```
   这里只列出了在`index.html`模板中发生变化的部分，主要有：
 * 首先，我们添加了一个`<select>`的html元素，并命名为`orderProp`，这样我们就有了两个排序依据选择了。
 ![双向数据绑定示意图](../image/tutorial_04.png)
@@ -53,7 +54,8 @@ phonecatApp.controller('PhoneListCtrl', function ($scope) {
   ];
 
   $scope.orderProp = 'age';
-});```
+});
+```
 * 我们编辑了`phones`的数据模型，即手机数组，在这个结构对每条记录中增加了`age`元素项，其可用于按手机推出时间排序。
 * 我们在控制器中设置了默认的值作为排序依据，即设置了`orderProp`的值为 `age`。如果不在这里设置这个值，则`orderBy`转换器（过滤器）是没有初始化的，直到我们在页面下拉菜单中进行了选择为止。
 
@@ -84,14 +86,16 @@ describe('PhoneCat controllers', function() {
       expect(scope.orderProp).toBe('age');
     });
   });
-});```
+});
+```
 这个单元测试现在验证了默认排序的设置。
 
 我们在`beforeEach`块内使用Jasmine的API来提取控制器内容，测试中这将在父级`describe`块内共享相关内容。
 
 你现在应该能看到Karma输出类似下面信息：
 ```cmd
-Chrome 22.0: Executed 2 of 2 SUCCESS (0.021 secs / 0.001 secs)```
+Chrome 22.0: Executed 2 of 2 SUCCESS (0.021 secs / 0.001 secs)
+```
 
 再看看端到端测试。
 `test/e2e/scenarios.js`:
@@ -121,7 +125,9 @@ Chrome 22.0: Executed 2 of 2 SUCCESS (0.021 secs / 0.001 secs)```
         "MOTOROLA XOOM\u2122",
         "Motorola XOOM\u2122 with Wi-Fi"
       ]);
-    });...```
+    });
+  ...
+```
 这里端到端测试验证下拉菜单的选择是否正确。我们现在可以运行`npm run protractor`来看看运行情况。
 
 ##尝试
@@ -131,7 +137,8 @@ Chrome 22.0: Executed 2 of 2 SUCCESS (0.021 secs / 0.001 secs)```
 
 反转排序只需要在排序值前面添加一个`-`号：
 ```html
-<option value="-age">Oldest</option>```
+<option value="-age">Oldest</option>
+```
 
 ##小结
 这一步我们为程序添加了排序功能，让我们进入步骤5，继续学习Angular的服务和依赖注入。
