@@ -4,13 +4,15 @@
 
 在`angular-phonecat`目录中运行：
 ```cmd
-git checkout -f step-0```
+git checkout -f step-0
+```
 
 这将把你的工作区切换到教程程序的 step-0分支中。完成教程学习中你会重复这个步骤（只是后面的数字会不同）以切换到不同步骤分支中。注意的是这将丢失你在原有工作区中做的所有改动。
 
 如果你不确定你已经安装了所有的依赖，需要运行一次：
 ```cmd
-npm install```
+npm install
+```
 
 为了在浏览器中运行程序，打开终端/命令行窗口，并运行`npm start`来开始web服务。现在，打开浏览器窗口，在地址栏输入`[http://localhost:8000/app/](http://localhost:8000/app/)`就可以访问到程序了。
 
@@ -33,22 +35,26 @@ npm install```
   <p>Nothing here {{'yet' + '!'}}</p>
 
 </body>
-</html>```
+</html>
+```
 
 ##这些代码做了什么？
 `ng-app`指令：
 ```html
-<html ng-app>```
+<html ng-app>
+```
 这个`ng-app`属性代表一个Angular指令`ngApp`(在Angular约定 `spinal-case`暨连词线拼接词用在定制属性中，`camelCase`暨驼峰拼接词用在指令中，并提供一致的效果）。这个指令标志这个html元素会被Angular用作应用程序的根（root）元素。这将告诉Angular是整个html页面还是部分元素作为Angular程序。
 
 AngularJS脚本标签:
 ```html
-<script src="bower_components/angular/angular.js">```
+<script src="bower_components/angular/angular.js">
+```
 这段代码将让浏览器下载angular.js脚本，并注册一个在浏览器完整下载HTML并初始化后会执行的回调。当回调执行了，Angular将搜索`ngApp`指令，如果找到了，就将以ngApp指令定义的DOM作为程序根元素来启动程序。
 
 双大括号（Double-curly）绑定表达式:
 ```html
-Nothing here {{'yet'+'!'}}```
+Nothing here {{'yet'+'!'}}
+```
 这一行展示了Angular模板应用的两个核心功能：
 * 一个绑定需要被双大括号（Double-curly）`{{ }}`括起来
 * 简单表达式`'yet'+'!' `可以用于绑定
@@ -85,7 +91,8 @@ Angular表达式(`Angular expression`)是类似JavaScript的代码，其在当�
 ##尝试
 尝试添加一个新的表达式到`index.html`文件中，它可以执行一些数学计算：
 ```html
-<p>1 + 2 = {{ 1 + 2 }}</p>```
+<p>1 + 2 = {{ 1 + 2 }}</p>
+```
 
 ##小结
 让我们进入到下个步骤，添加更多内容到web app中
