@@ -152,19 +152,20 @@ $scope.name = "World";
 expect(scope.name).toBe('World');
 ```
 利用`repeater`指令在`index.html`中构建一个简单的表格：
+
 ```html
     <table>
       <tr><th>row number</th></tr>
       <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i}}</td></tr>
     </table>
-    ```
+```
 现在把列表改成对i都增加1的绑定：
 ```html
     <table>
       <tr><th>row number</th></tr>
       <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i+1}}</td></tr>
     </table>
-    ```
+```
 额外还可以尝试通过使用附加的ngrepeat实现8×8的表格。
 
 改变测试项让单元测试失败:如把`expect(scope.phones.length).toBe(3)`改成`toBe(4)`。
